@@ -23,6 +23,10 @@
         <% if user_signed_in? %>
           <li><%= link_to raw("<span class='glyphicon glyphicon-user'></span> " +
             t(".users")), users_path %></li>
+          <% if current_user.admin? %>
+            <li><%= link_to raw("<span class='glyphicon glyphicon-list-alt'>\
+              </span> " + t(".statistic")), statistics_path %></li>
+          <% end %>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <%= t ".account" %>
