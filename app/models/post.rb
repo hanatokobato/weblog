@@ -34,10 +34,6 @@ class Post < ApplicationRecord
     self.tags.map(&:name).join ", "
   end
 
-  def tag_names
-    self.tags.map(&:name).join ", "
-  end
-
   private
 
   def create_tags

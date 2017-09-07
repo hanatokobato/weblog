@@ -5,6 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem "bootstrap-datepicker-rails"
 gem "bootstrap-kaminari-views"
 gem "bootstrap-sass"
 gem "carrierwave"
@@ -25,7 +26,6 @@ gem "omniauth-google-oauth2"
 gem "puma", "~> 3.7"
 gem "rails", "~> 5.1.3"
 gem "sass-rails", "~> 5.0"
-gem "sqlite3"
 gem "uglifier", ">= 1.3.0"
 
 group :development, :test do
@@ -50,6 +50,7 @@ group :development, :test do
   gem "rubocop-checkstyle_formatter", require: false
   gem "scss_lint_reporter_checkstyle", require: false
   gem "selenium-webdriver"
+  gem "sqlite3"
 end
 
 group :development do
@@ -57,6 +58,10 @@ group :development do
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
   gem "web-console", ">= 3.3.0"
+end
+
+group :production do
+  gem "pg"
 end
 
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]

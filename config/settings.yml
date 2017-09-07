@@ -35,3 +35,5 @@ users:
 picture:
   limit_height: 400
   limit_width: 400
+statistic:
+  limit: 10

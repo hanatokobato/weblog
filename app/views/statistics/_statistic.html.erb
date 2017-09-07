@@ -1,0 +1,5 @@
+<h2><%= @title %></h2>
+<ul class="<%= @objects.first.class.name.downcase %>s">
+  <%= render @objects %>
+</ul>
+<%= will_paginate @objects %>

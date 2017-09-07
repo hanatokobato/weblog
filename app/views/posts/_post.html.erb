@@ -16,7 +16,8 @@
     <%= t ".posted" %>
     <%= time_ago_in_words post.created_at %>
     <%= t ".ago" %>.
-      <% if user_signed_in? && current_user.is_user?(post.user) %>
+      <% if user_signed_in? && (current_user.is_user?(post.user) ||
+          current_user.admin?) %>
         <%= link_to t(".delete"), post, method: :delete,
           data: {confirm: t(".are_you_sure")} %>
       <% end %>
