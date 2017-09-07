@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20170907025157) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id", "created_at"], name: "index_posts_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
@@ -50,11 +51,14 @@ ActiveRecord::Schema.define(version: 20170907025157) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.boolean "admin"
+    t.string "provider"
+    t.string "uid"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
