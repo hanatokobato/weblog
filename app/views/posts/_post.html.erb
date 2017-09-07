@@ -23,9 +23,14 @@
       <% end %>
   </span>
   <span class="comment-manager">
-    <%= link_to t(".comments"), post_comments_path(post), remote: true %>
+    <%= link_to t(".comments"), post_comments_path(post),
+      class: "comment-link", remote: true %>
     <span class="badge" id="post-<%= post.id %>-comment-count">
       <%= post.comments.size %>
+    </span>
+    <span id="post-<%= post.id %>-loadding-comments"
+      class="post-loadding-comments">
+      <%= image_tag "Spinner.gif" %>
     </span>
   </span>
   <div class="comments-with-form">

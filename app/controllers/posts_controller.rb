@@ -25,6 +25,8 @@ class PostsController < ApplicationController
       flash[:success] = t ".created"
       redirect_to root_url
     else
+      @feed_items = [];
+      flash[:danger] = t ".invalid_tags"
       render "static_pages/home"
     end
   end

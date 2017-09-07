@@ -49,6 +49,7 @@ en:
   posts:
     create:
       created: "Post created!"
+      invalid_tags: "Invalid Tags!"
     destroy:
       deleted: "Post deleted!"
       failed: "Can not delete this post!"
@@ -99,6 +100,7 @@ en:
     statistic:
       active_users: "The most active users from "
       common_posts: "The most common posts from "
+      download: "Downloads"
       invalid_date: "Invalid date!"
       new_users: "New users from "
       posts: "Posts are submited from "
