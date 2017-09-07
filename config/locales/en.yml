@@ -53,6 +53,13 @@ en:
     destroy:
       deleted: "Post deleted!"
       failed: "Can not delete this post!"
+    edit:
+      close: "Close"
+      compose_post: "Conpose post"
+      edit_post: "Edit post"
+      enter_title: "Enter title"
+      post: "Post"
+      tag_separated: "Tag separated with comma"
     index:
       not_found: "Post is not found!"
       search_post: "Search Post"
@@ -66,9 +73,18 @@ en:
       ago: "ago"
       are_you_sure: "Are you sure?"
       delete: "delete"
+      edit: "edit"
       posted: "posted"
       tags: "tags: "
       title: "title: "
+    show:
+      ago: "ago"
+      are_you_sure: "Are you sure?"
+      delete: "delete"
+      edit: "edit"
+      post: "post"
+      posted: "Posted"
+      view_profile: "View profile"
   relationships:
     create:
       can_not_follow: "Can not follow"
@@ -93,7 +109,7 @@ en:
       common_post_stat: "Common Posts"
       end: "End date"
       message: "Enter begin and end date below.
-        They are used to calculate statistic."
+        They are used to calculate statistic. (format: yyyy-mm-dd)"
       post_stat: "Posts"
       statistics: "Statistics"
       user_stat: "New Users"

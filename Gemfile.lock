@@ -553,6 +553,8 @@ DEPENDENCIES
   bootstrap-kaminari-views
   bootstrap-datepicker-rails
   bootstrap-kaminari-views
+  bootstrap-datepicker-rails
+  bootstrap-kaminari-views
   bootstrap-sass
   brakeman
   bundler-audit
@@ -566,6 +568,8 @@ DEPENDENCIES
   devise
   eslint-rails!
   factory_girl_rails
+  faker (= 1.7.3)
+  figaro
   faker (= 1.7.3)
   figaro
   faker (= 1.7.3)

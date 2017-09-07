@@ -3,9 +3,8 @@ class RelationshipsController < ApplicationController
 
   def create
     @user = User.find_by id: params[:followed_id]
-    verify_user
 
-    if current_user.follow @user
+    if @user && current_user.follow(@user)
       respond_to do |format|
         format.html{redirect_to @user}
         format.js
@@ -23,9 +22,8 @@ class RelationshipsController < ApplicationController
 
   def destroy
     @user = Relationship.find_by(id: params[:id]).followed
-    verify_user
 
-    if current_user.unfollow @user
+    if @user && current_user.unfollow(@user)
       respond_to do |format|
         format.html{redirect_to @user}
         format.js
@@ -39,13 +37,5 @@ class RelationshipsController < ApplicationController
         format.js{@error = t ".can_not_unfollow"}
       end
     end
-  end
-
-  private
-
-  def verify_user
-    return if @user
-    flash[:danger] = t ".not_found"
-    redirect_to root_url
   end
 end

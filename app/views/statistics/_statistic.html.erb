@@ -2,7 +2,7 @@
   <%= @title %>
   <%= link_to t(".download"), statistic_path(statistic:
     {from: @statistic.from, to: @statistic.to}, statistic_type: @statistic_type,
-    format: "xls") %>
+    format: "xls") if @objects.any? %>
 </h2>
 
 <% if @objects.any? %>

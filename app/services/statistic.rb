@@ -5,8 +5,8 @@ class Statistic
   attr_accessor :from
   attr_accessor :to
 
-  validates :from, presence: true
-  validates :to, presence: true
+  validates :from, presence: true, format: {with: /\d{4}\-\d{2}\-\d{2}/}
+  validates :to, presence: true, format: {with: /\d{4}\-\d{2}\-\d{2}/}
 
   def posts
     Post.where "created_at BETWEEN ? AND ?", from, to

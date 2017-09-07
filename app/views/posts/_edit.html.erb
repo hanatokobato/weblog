@@ -1,0 +1,34 @@
+<div class="modal fade" id="editModal" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"><%= t ".edit_post" %></h4>
+      </div>
+      <div class="modal-body">
+        <%= form_for @post do |f| %>
+          <%= render "shared/error_messages", object: f.object %>
+          <div>
+            <%= f.text_field :title, placeholder: t(".enter_title"),
+              class: "form-control" %>
+            <%= f.text_field :new_tag_names, value: @post.tag_names, placeholder: t(".tag_separated"),
+              class: "form-control" %>
+          </div>
+          <div class="field">
+            <%= f.cktext_area :body, placeholder: t(".compose_post"),
+              class: "form-control" %>
+          </div>
+          <%= f.submit t(".post"), class: "btn btn-primary" %>
+          <span class="picture">
+            <%= f.file_field :picture, accept: "image/jpeg,image/gif,image/png" %>
+          </span>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">
+          <%= t ".close" %>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

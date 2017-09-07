@@ -3,9 +3,9 @@
     post.user %>
   <span class="user"><%= link_to post.user.name, post.user %></span>
   <span class="title">
-    <%= t(".title") + post.title %>
+    <h3><%= link_to post.title, post %></h3>
     <% if post.tags.any? %>
-      | <%= t ".tags" %><%= raw tag_links post.tag_names %>
+      <%= raw tag_links post.tag_names %>
     <% end %>
   </span>
   <span class="content">
@@ -16,11 +16,11 @@
     <%= t ".posted" %>
     <%= time_ago_in_words post.created_at %>
     <%= t ".ago" %>.
-      <% if user_signed_in? && (current_user.is_user?(post.user) ||
-          current_user.admin?) %>
-        <%= link_to t(".delete"), post, method: :delete,
-          data: {confirm: t(".are_you_sure")} %>
-      <% end %>
+    <% if user_signed_in? && (current_user.is_user?(post.user) ||
+      current_user.admin?) %>
+      | <%= link_to t(".delete"), post, method: :delete,
+      data: {confirm: t(".are_you_sure")} %>
+    <% end %>
   </span>
   <span class="comment-manager">
     <%= link_to t(".comments"), post_comments_path(post),
