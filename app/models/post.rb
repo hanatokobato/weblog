@@ -29,7 +29,7 @@ class Post < ApplicationRecord
     return unless new_tag_names
 
     new_tag_names.split(",").each do |name|
-      self.tags << Tag.where(name: name).first_or_create!
+      self.tags << Tag.where(name: name.strip).first_or_create!
     end
   end
 

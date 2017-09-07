@@ -1,6 +1,8 @@
 comment:
   content:
     maxlength: 255
+  user:
+    picture_size: 30
 devise:
   token:
     max: 20

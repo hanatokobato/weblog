@@ -1,0 +1,6 @@
+$('#<%= commentable_type @commentable %>-<%= @commentable.id %>-comments')
+  .append('<%= j render @comment, commentable: @commentable %>');
+$('#<%= commentable_type @commentable %>-<%= @commentable.id %>-comment-count')
+  .html('<%= @commentable.comments.size %>');
+$('#<%= commentable_type @commentable %>-<%= @commentable.id %>-comment-form')
+  .find('.comment-field').val('');
