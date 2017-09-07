@@ -1,3 +1,21 @@
 en:
   layouts:
-    weblog: "Weblog"
+    application:
+      base_title: "weblog"
+    footer:
+      about: "About"
+      by: "by"
+      contact: "Contact"
+      news: "News"
+      the: "The"
+    header:
+      help: "Help"
+      home: "Home"
+      login: "Log in"
+      weblog: "Weblog"
+  static_pages:
+    home:
+      home: "Home"
+      intro: "This is the home page for the Weblog"
+      welcome: "Welcome to the Weblog"
+      signup: "Sing up now!"

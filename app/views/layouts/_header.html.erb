@@ -1,0 +1,15 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <%= link_to t(".weblog"), static_pages_path(:home), id: "logo" %>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to raw("<span class='glyphicon glyphicon-home'></span> " +
+          t(".home")), static_pages_path(:home) %></li>
+        <li><%= link_to raw("<span class='glyphicon glyphicon-question-sign'>
+          </span> " + t(".help")), "https://www.google.com" %></li>
+        <li><%= link_to raw("<span class='glyphicon glyphicon-log-in'>
+          </span> " + t(".login")), "#" %></li>
+      </ul>
+    </nav>
+  </div>
+</header>
