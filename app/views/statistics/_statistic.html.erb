@@ -1,0 +1,10 @@
+<h2>
+  <%= @title %>
+</h2>
+
+<% if @objects.any? %>
+  <ul class="<%= @objects.first.class.name.downcase %>s">
+    <%= render @objects %>
+  </ul>
+<% end %>
+<%= paginate @objects, theme: "twitter-bootstrap-3" %>

@@ -21,4 +21,7 @@ Rails.application.routes.draw do
   resources :relationships, only: %i(create destroy)
 
   get "tags/:tag_name", to: "posts#index", as: :tag
+
+  get "statistics", to: "statistics#index", as: :statistics
+  get "statistic", to: "statistics#statistic", as: :statistic
 end
