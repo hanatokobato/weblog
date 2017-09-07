@@ -1,4 +1,25 @@
 en:
+  comments:
+    can_not_comment: "Can not comment!"
+    can_not_find_post: "Can not find post!"
+    can_not_edit: "Can not edit comment!"
+    comment:
+      ago: "ago"
+      delete: "delete"
+      edit: "edit"
+      reply: "reply"
+      submitted: "submitted"
+    comment_not_found: "Comment is not found!"
+    create:
+      can_not_create: "Can not create comment!"
+      can_not_delete: "Can not delete comment!"
+      created: "Comment is created!"
+    form:
+      enter_comment: "Enter comment"
+      submit: "submit"
+    update:
+      can_not_update: "Can not update comment!"
+      comment_updated: "Comment is updated!"
   errors:
     messages:
       picture_size: "should be less than 5MB"

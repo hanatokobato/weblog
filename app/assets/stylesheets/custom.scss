@@ -24,6 +24,7 @@
 /* universal */
 
 body {
+  background-color: Lavender;
   padding-top: 60px;
 }
 
@@ -293,4 +294,33 @@ span.picture {
   input {
     border: 0;
   }
+}
+
+/* comments */
+
+.comments-list {
+  border-left: 1px groove $gray-medium-light;
+  list-style: none;
+  margin-top: 5px;
+  padding-left: 10px;
+
+  .edit_comment {
+    .btn-comment {
+      display: none;
+    }
+  }
+
+  li {
+    border-top: 1px solid $logo-color;
+    margin-bottom: 15px;
+    padding-left: 20px;
+  }
+
+  .content {
+    overflow-wrap: break-word;
+  }
+}
+
+.comments-with-form {
+  background-color: Lavender;
 }
