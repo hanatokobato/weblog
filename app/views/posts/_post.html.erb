@@ -32,6 +32,7 @@
       class="post-loadding-comments">
       <%= image_tag "Spinner.gif" %>
     </span>
+    <%= social_share_button_tag post.title, allow_sites: %w(twitter facebook google_plus) %>
   </span>
   <div class="comments-with-form">
     <ul class="comments-list" id="post-<%= post.id %>-comments"></ul>

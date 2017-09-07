@@ -5,4 +5,8 @@
     | <%= link_to t(".delete"), user, method: :delete,
       data: {confirm: t(".are_you_sure?")} %>
   <% end %>
+  <span class="label label-success">
+    <%= pluralize ((user.post_count if user.respond_to? :post_count) ||
+      user.posts.size), t(".post") %>
+  </span>
 </li>

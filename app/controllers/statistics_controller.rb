@@ -10,6 +10,7 @@ class StatisticsController < ApplicationController
       @statistic_type = params[:statistic_type]
       @title = t(".#{@statistic_type}") + "#{@statistic.from} -> #{@statistic.to}" +
         " (#{@statistic.send(@statistic_type).length})"
+
       respond_to do |format|
         format.html {
           @objects = @statistic.send("#{@statistic_type}").page(params[:page])
