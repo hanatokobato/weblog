@@ -32,4 +32,11 @@
     <%= link_to t(".signup"), new_user_registration_path,
       class: "btn btn-lg btn-primary" %>
   </div>
+  <% if !@posts.blank? %>
+    <ul class="posts">
+      <%= render @posts %>
+    </ul>
+  <% end %>
+
+  <%= will_paginate @posts %>
 <% end %>

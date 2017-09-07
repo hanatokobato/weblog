@@ -2,6 +2,21 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only: %i(create destroy)
   before_action :correct_user, only: :destroy
 
+  def index
+    if params[:search]
+      @posts = Post.search(params[:search]).paginate page: params[:page],
+        per_page: Settings.post.per_page
+    elsif params[:tag_name]
+      tag = Tag.find_by name: params[:tag_name]
+
+      unless tag
+        flash[:danger] = t ".not_found"
+      end
+      @posts = tag.posts.paginate page: params[:page],
+        per_page: Settings.post.per_page
+    end
+  end
+
   def create
     @post = current_user.posts.build post_params
 
