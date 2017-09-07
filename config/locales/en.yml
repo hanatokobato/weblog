@@ -9,13 +9,18 @@ en:
       news: "News"
       the: "The"
     header:
+      account: "Account"
       help: "Help"
       home: "Home"
       login: "Log in"
+      logout: "Log out"
+      profile: "Profile"
+      settings: "Settings"
+      users: "Users"
       weblog: "Weblog"
   static_pages:
     home:
       home: "Home"
       intro: "This is the home page for the Weblog"
       welcome: "Welcome to the Weblog"
-      signup: "Sing up now!"
+      signup: "Sign up now!"
