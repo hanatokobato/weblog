@@ -6,10 +6,12 @@ devise:
     max: 20
     min: 0
 post:
-  title:
-    maxlength: 50
   body:
     maxlength: 255
+  per_page: 10
+  picture_size: 5
+  title:
+    maxlength: 50
 tag:
   name:
     maxlength: 50
@@ -26,3 +28,6 @@ users:
   per_page: 10
   gravatar:
     size: 50
+picture:
+  limit_height: 400
+  limit_width: 400

@@ -42,4 +42,8 @@ class User < ApplicationRecord
       end
     end
   end
+
+  def is_user? user
+    self == user
+  end
 end

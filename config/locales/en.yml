@@ -1,4 +1,7 @@
 en:
+  errors:
+    messages:
+      picture_size: "should be less than 5MB"
   layouts:
     application:
       base_title: "weblog"
@@ -18,6 +21,27 @@ en:
       settings: "Settings"
       users: "Users"
       weblog: "Weblog"
+  posts:
+    create:
+      created: "Post created!"
+    destroy:
+      deleted: "Post deleted!"
+      failed: "Can not delete this post!"
+    new:
+      compose_post: "Compose post"
+      enter_title: "Enter title"
+      post: "post"
+      tag_separated: "Tags separated with comma"
+    post:
+      ago: "ago"
+      are_you_sure: "Are you sure?"
+      delete: "delete"
+      posted: "posted"
+      title: "title: "
+  shared:
+    error_messages:
+      error: "error"
+      the_form_contain: "The form contain"
   static_pages:
     home:
       home: "Home"
@@ -28,3 +52,6 @@ en:
     index:
       all_users: "All users"
     not_found: "User not found!"
+    user_info:
+      post: "post"
+      view_profile: "View my profile"
