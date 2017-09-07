@@ -490,6 +490,8 @@ GEM
     sexp_processor (4.10.0)
     shellany (0.0.1)
     slop (3.6.0)
+    social-share-button (1.0.0)
+      coffee-rails
     spreadsheet (1.1.4)
       ruby-ole (>= 1.0)
     spring (2.0.2)
@@ -549,6 +551,8 @@ DEPENDENCIES
   better_errors
   bootstrap-datepicker-rails
   bootstrap-kaminari-views
+  bootstrap-datepicker-rails
+  bootstrap-kaminari-views
   bootstrap-sass
   brakeman
   bundler-audit
@@ -562,6 +566,8 @@ DEPENDENCIES
   devise
   eslint-rails!
   factory_girl_rails
+  faker (= 1.7.3)
+  figaro
   faker (= 1.7.3)
   figaro
   faker (= 1.7.3)
@@ -591,6 +597,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   scss_lint_reporter_checkstyle
   selenium-webdriver
+  social-share-button
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3
