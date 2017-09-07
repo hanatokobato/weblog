@@ -10,12 +10,27 @@ class StatisticsController < ApplicationController
       @statistic_type = params[:statistic_type]
       @title = t(".#{@statistic_type}") + "#{@statistic.from} -> #{@statistic.to}" +
         " (#{@statistic.send(@statistic_type).length})"
-      @objects = @statistic.send("#{@statistic_type}").page(params[:page])
-        .per Settings.post.per_page
-      render :index
+      respond_to do |format|
+        format.html {
+          @objects = @statistic.send("#{@statistic_type}").page(params[:page])
+            .per Settings.post.per_page
+          render :index
+        }
+        format.xls {
+          @objects = @statistic.send("#{@statistic_type}")
+          filename = "#{@title}.xls"
+          send_data(@objects.to_a.to_xls,
+            type: "text/xls; charset=utf-8; header=present",
+            filename: filename)
+        }
+      end
     else
-      flash.now[:warning] = t ".invalid_date"
-      render :index
+      respond_to do |format|
+        format.html {
+          flash.now[:warning] = t ".invalid_date"
+          render :index
+        }
+      end
     end
   end
 
