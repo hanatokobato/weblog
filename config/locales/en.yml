@@ -24,3 +24,7 @@ en:
       intro: "This is the home page for the Weblog"
       welcome: "Welcome to the Weblog"
       signup: "Sign up now!"
+  users:
+    index:
+      all_users: "All users"
+    not_found: "User not found!"

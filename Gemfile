@@ -5,6 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem "bootstrap-kaminari-views"
 gem "bootstrap-sass"
 gem "coffee-rails", "~> 4.2"
 gem "config"
@@ -13,6 +14,7 @@ gem "figaro"
 gem "jbuilder", "~> 2.5"
 gem "jquery-rails", "4.3.1"
 gem "jquery-turbolinks"
+gem "kaminari"
 gem "omniauth-facebook"
 gem "omniauth-google-oauth2"
 gem "puma", "~> 3.7"
