@@ -70,9 +70,26 @@ en:
       welcome: "Welcome to the Weblog"
       signup: "Sign up now!"
   users:
+    follow:
+      follow: "Follow"
+    followers:
+      followers: "Followers"
+    following:
+      following: "Following"
+      follow: "Follow"
+    stats:
+      followers: "followers"
+      following: "following"
+    unfollow:
+      unfollow: "Unfollow"
     index:
       all_users: "All users"
     not_found: "User not found!"
     user_info:
       post: "post"
       view_profile: "View my profile"
+    show:
+      post: "Post"
+    show_follow:
+      view_profile: "View my profile"
+      posts: "posts"

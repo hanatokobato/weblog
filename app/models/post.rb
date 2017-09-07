@@ -17,7 +17,12 @@ class Post < ApplicationRecord
 
   mount_uploader :picture, PictureUploader
   scope :order_latest, ->{order created_at: :desc}
-  scope :feed, ->(user_id){where user_id: user_id}
+  scope :feed, (lambda do |user_id|
+    following_ids = "SELECT followed_id FROM relationships
+      WHERE  follower_id = :user_id"
+    where("user_id IN (#{following_ids})
+      OR user_id = :user_id", user_id: user_id)
+  end)
 
   def tag_names
     self.tags.map(&:name).join ", "

@@ -11,4 +11,9 @@ module CommentsHelper
     user_signed_in? &&
       (current_user.is_user?(comment.user) || current_user.is_user?(post.user))
   end
+
+  def can_comment? post
+    user_signed_in? &&
+      (current_user.is_user?(post.user) || current_user.following?(post.user))
+  end
 end
