@@ -2,4 +2,9 @@ class Comment < ApplicationRecord
   belongs_to :commentable, polymorphic: true
   belongs_to :user
   has_many :comments, as: :commentable
+
+  validates :content, presence: true,
+    length: {maximum: Settings.comment.content.maxlength}
+  validates :user, presence: true
+  validates :commentable, presence: true
 end
