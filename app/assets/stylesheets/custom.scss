@@ -234,7 +234,71 @@ input {
   }
 }
 
+.cancel-account {
+  clear: both;
+  padding-top: 5px;
+
+  .btn-danger {
+    white-space: normal;
+    width: 100px;
+  }
+}
+
 #user_remember_me {
   margin-left: 0;
   width: auto;
+}
+
+/* side bar */
+
+aside {
+  section.user_info {
+    margin-top: 20px;
+  }
+
+  section {
+    margin-top: 20px;
+    padding: 10px 0;
+
+    &:first-child {
+      border: 0;
+      padding-top: 0;
+    }
+
+    span {
+      display: block;
+      line-height: 1;
+      margin-bottom: 3px;
+    }
+
+    h1 {
+      font-size: 1.4em;
+      letter-spacing: -1px;
+      margin-bottom: 3px;
+      margin-top: 0px;
+      text-align: left;
+    }
+  }
+}
+
+.gravatar {
+  float: left;
+  margin-right: 10px;
+}
+
+.gravatar_edit {
+  margin-top: 15px;
+}
+
+/* Users index */
+
+.users {
+  list-style: none;
+  margin: 0;
+
+  li {
+    border-bottom: 1px solid $gray-lighter;
+    overflow: auto;
+    padding: 10px 0;
+  }
 }
