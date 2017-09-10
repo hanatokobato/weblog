@@ -7,7 +7,10 @@ class UsersController < ApplicationController
       .page(params[:page]).per Settings.users.per_page
   end
 
-  def show; end
+  def show
+    @posts = @user.posts.paginate page: params[:page],
+      per_page: Settings.post.per_page
+  end
 
   private
 
