@@ -1,0 +1,5 @@
+$("#comment_<%= @comment.id %>").find('.body').first().hide();
+$("#comment_<%= @comment.id %>").find('.edit-form').first()
+  .html("<%= escape_javascript(render 'comments/form', comment: @comment) %>");
+$("#comment_<%= @comment.id %> .edit-form .comment-field")
+  .focus();

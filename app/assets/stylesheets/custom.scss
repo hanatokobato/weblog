@@ -24,6 +24,7 @@
 /* universal */
 
 body {
+  background-color: Lavender;
   padding-top: 60px;
 }
 
@@ -314,7 +315,7 @@ aside {
   margin: 0;
 
   li {
-    border-bottom: 1px solid $gray-lighter;
+    border-bottom: 1px solid $logo-color;
     overflow: auto;
     padding: 10px 0;
   }
@@ -326,9 +327,13 @@ aside {
   list-style: none;
   padding: 0;
 
-  li {
-    border-top: 1px solid #e8e8e8;
-    padding: 10px 0;
+  .post {
+    background-color: $logo-color;
+    border-radius: 2px;
+    border-top: 1px solid $border-li-color;
+    box-shadow: 0 2px 3px 2px rgba(0,0,0,.03);
+    margin-bottom: 25px;
+    padding: 12px 20px 15px;
   }
 
   .user {
@@ -366,7 +371,6 @@ aside {
 
 aside {
   textarea {
-    height: 100px;
     margin-bottom: 5px;
   }
 }
@@ -377,4 +381,33 @@ span.picture {
   input {
     border: 0;
   }
+}
+
+/* comments */
+
+.comments-list {
+  border-left: 1px groove $gray-medium-light;
+  list-style: none;
+  margin-top: 5px;
+  padding-left: 10px;
+
+  .edit_comment {
+    .btn-comment {
+      display: none;
+    }
+  }
+
+  li {
+    border-top: 1px solid $logo-color;
+    margin-bottom: 15px;
+    padding-left: 20px;
+  }
+
+  .content {
+    overflow-wrap: break-word;
+  }
+}
+
+.comments-with-form {
+  background-color: Lavender;
 }
