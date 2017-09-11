@@ -1,0 +1,18 @@
+comment:
+  content:
+    maxlength: 255
+post:
+  title:
+    maxlength: 50
+  body:
+    maxlength: 255
+tag:
+  name:
+    maxlength: 50
+user:
+  email:
+    maxlength: 255
+  name:
+    maxlength: 255
+  password:
+    minlength: 6
