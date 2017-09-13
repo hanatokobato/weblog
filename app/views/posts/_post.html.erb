@@ -25,8 +25,7 @@
   <div class="comments-with-form">
     <ul class="comments-list" id="post_<%= post.id %>_comments" style="display: none">
     </ul>
-    <% if user_signed_in? && (current_user.is_user?(post.user) ||
-        current_user.following?(post.user)) %>
+    <% if can_comment? post %>
       <span id="post_<%= post.id %>_comment_form" class="comment-form"
         style="display: none"></span>
     <% end %>

@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   get "static_pages/*page_type", to: "static_pages#show", as: "static_pages"
 
   devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
-  resources :users, only: %i(index show)
+  resources :users, only: %i(index show) do
+    member do
+      get :following, :followers
+    end
+  end
 
   resources :posts do
     resources :comments
@@ -13,4 +17,6 @@ Rails.application.routes.draw do
   resources :comments do
     resources :comments
   end
+
+  resources :relationships, only: %i(create destroy)
 end

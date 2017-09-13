@@ -36,7 +36,7 @@
       <ul class="comments-list" id="comment_<%= comment.id %>_comments"
         style="display: none">
       </ul>
-      <% if user_signed_in? && current_user.is_user?(@post.user) %>
+      <% if can_comment? @post %>
         <span id="comment_<%= comment.id %>_comment_form" style="display: none"
           class="comment-form"></span>
       <% end %>

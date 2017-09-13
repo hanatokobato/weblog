@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_many :following, through: :active_relationships, source: :followed
   has_many :passive_relationships, class_name: Relationship.name,
     foreign_key: :followed_id, dependent: :destroy
-  has_many :follower, through: :passive_relationships, source: :follower
+  has_many :followers, through: :passive_relationships, source: :follower
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   validates :name, presence: true,
@@ -45,5 +45,17 @@ class User < ApplicationRecord
 
   def is_user? user
     self == user
+  end
+
+  def follow other
+    following << other
+  end
+
+  def unfollow other
+    following.delete other
+  end
+
+  def following? other
+    following.include? other
   end
 end
