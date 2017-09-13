@@ -44,6 +44,10 @@ textarea {
   margin-bottom: 10px;
 }
 
+.jumbotron {
+  background-color: $info;
+}
+
 /* typography */
 
 h1,
@@ -453,5 +457,5 @@ span.picture {
 }
 
 .comments-with-form {
-  background-color: Lavender;
+  background-color: $warning;
 }

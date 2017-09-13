@@ -19,4 +19,6 @@ Rails.application.routes.draw do
   end
 
   resources :relationships, only: %i(create destroy)
+
+  get "tags/:tag_name", to: "posts#index", as: "tag"
 end

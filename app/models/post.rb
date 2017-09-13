@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  attr_accessor :tag_names
+  attr_accessor :new_tag_names
 
   has_many :comments, as: :commentable, dependent: :destroy
   has_many :post_tags, dependent: :destroy
@@ -19,18 +19,28 @@ class Post < ApplicationRecord
   default_scope ->{order created_at: :desc}
   scope :feed, (lambda do |user_id|
     following_ids = "SELECT followed_id FROM relationships
-      WHERE  follower_id = :user_id"
+      WHERE follower_id = :user_id"
     where("user_id IN (#{following_ids})
       OR user_id = :user_id", user_id: user_id)
   end)
+  scope :search, (lambda do |search|
+    post_ids = "(SELECT post_tags.post_id FROM post_tags INNER JOIN tags
+      ON post_tags.tag_id = tags.id
+      WHERE tags.name LIKE :search)"
+    where("title LIKE :search OR id IN #{post_ids}", search: "%#{search}%")
+  end)
+
+  def tag_names
+    self.tags.map(&:name).join ", "
+  end
 
   private
 
   def create_tags
-    return unless tag_names
+    return unless new_tag_names
 
-    tag_names.split(",").each do |name|
-      Tag.where(name: name.strip).first_or_create!
+    new_tag_names.split(",").each do |name|
+      self.tags << Tag.where(name: name).first_or_create!
     end
   end
 

@@ -2,6 +2,19 @@
   <div class="container">
     <%= link_to t(".weblog"), static_pages_path(:home), id: "logo" %>
     <nav>
+      <div class="col-md-3">
+        <%= form_tag posts_path, :method => "get", id: "search-form",
+          class: "navbar-form", role: "search" do %>
+          <div class="input-group">
+            <%= text_field_tag :search, params[:search],
+              placeholder: "Search Post", class: "form-control" %>
+            <div class="input-group-btn">
+              <%= submit_tag t(".search"), :name => nil,
+                class: "btn btn-warning" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to raw("<span class='glyphicon glyphicon-home'></span> " +
           t(".home")), static_pages_path(:home) %></li>

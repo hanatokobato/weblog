@@ -1,0 +1,11 @@
+<% provide :title, t(".search_post") %>
+
+<h1><%= t ".post_founded" %></h1>
+
+<% if !@posts.blank? %>
+  <ul class="posts">
+    <%= render @posts %>
+  </ul>
+<% end %>
+
+<%= will_paginate %>

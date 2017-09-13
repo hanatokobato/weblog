@@ -7,10 +7,12 @@ end
 
 gem "bootstrap-kaminari-views"
 gem "bootstrap-sass"
+gem "bootstrap-will_paginate"
 gem "carrierwave"
 gem "coffee-rails", "~> 4.2"
 gem "config"
 gem "devise"
+gem "faker", "1.7.3"
 gem "figaro"
 gem "fog"
 gem "jbuilder", "~> 2.5"
