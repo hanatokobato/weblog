@@ -154,3 +154,33 @@ input {
   margin-left: 0;
   width: auto;
 }
+
+/* forms */
+
+input,
+textarea,
+select,
+.uneditable-input {
+  @include box_sizing;
+  border: 1px solid $form-border-color;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+input {
+  height: auto !important;
+}
+
+.checkbox {
+  margin-top: -10px 0 10px;
+
+  span {
+    font-weight: normal;
+    margin-left: 20px;
+  }
+}
+
+.remember-me {
+  margin-left: 0;
+  width: auto;
+}

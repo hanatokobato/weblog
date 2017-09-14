@@ -1,6 +1,10 @@
 comment:
   content:
     maxlength: 255
+devise:
+  token:
+    max: 20
+    min: 0
 post:
   title:
     maxlength: 50
