@@ -16,7 +16,6 @@ class Post < ApplicationRecord
   after_save :create_tags
 
   mount_uploader :picture, PictureUploader
-  default_scope ->{order created_at: :desc}
   scope :feed, (lambda do |user_id|
     following_ids = "SELECT followed_id FROM relationships
       WHERE follower_id = :user_id"

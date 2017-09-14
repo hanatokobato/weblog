@@ -4,11 +4,11 @@ class StaticPagesController < ApplicationController
       if params[:page_type] == "home"
         if user_signed_in?
           @post = current_user.posts.build
-          @feed_items = Post.feed(current_user.id).paginate page: params[:page],
-            per_page: Settings.post.per_page
+          @feed_items = Post.feed(current_user.id).order(created_at: :desc)
+            .paginate page: params[:page], per_page: Settings.post.per_page
         else
-          @posts = Post.all.paginate page: params[:page],
-            per_page: Settings.post.per_page
+          @posts = Post.all.order(created_at: :desc)
+            .paginate page: params[:page], per_page: Settings.post.per_page
         end
       end
 

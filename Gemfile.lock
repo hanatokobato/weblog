@@ -69,6 +69,8 @@ GEM
     bootstrap-kaminari-views (0.0.5)
       kaminari (>= 0.13)
       rails (>= 3.1)
+    bootstrap-datepicker-rails (1.7.1.1)
+      railties (>= 3.0)
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
@@ -367,6 +369,7 @@ GEM
     orm_adapter (0.5.0)
     parser (2.4.0.0)
       ast (~> 2.2)
+    pg (0.21.0)
     powerpack (0.1.1)
     pry (0.10.4)
       coderay (~> 1.1.0)
@@ -537,6 +540,7 @@ DEPENDENCIES
   autoprefixer-rails
   better_errors
   bootstrap-kaminari-views
+  bootstrap-datepicker-rails
   bootstrap-sass
   bootstrap-will_paginate
   brakeman
@@ -563,6 +567,7 @@ DEPENDENCIES
   mini_magick
   omniauth-facebook
   omniauth-google-oauth2
+  pg
   puma (~> 3.7)
   railroady
   rails (~> 5.1.3)
