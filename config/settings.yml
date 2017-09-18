@@ -16,7 +16,13 @@ tag:
 user:
   email:
     maxlength: 255
+  gravatar:
+    size: 80
   name:
     maxlength: 255
   password:
     minlength: 6
+users:
+  per_page: 10
+  gravatar:
+    size: 50

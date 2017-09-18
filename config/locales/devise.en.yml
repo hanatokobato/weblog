@@ -39,6 +39,18 @@ en:
       updated_not_active: "Your password has been changed successfully."
     registrations:
       destroyed: "Bye! Your account has been successfully cancelled. We hope to see you again soon."
+      edit:
+        are_you_sure: "Are you sure?"
+        cancel_account: "Cancel my account"
+        change: "change"
+        confirm_password: "Confirm your password"
+        edit_user: "Edit user"
+        enter_email: "Enter your email"
+        enter_name: "Enter your name"
+        enter_password: "Enter your password"
+        unhappy?: "Unhappy?"
+        update: "Update"
+        update_profile: "Update your profile"
       new:
         confirm_password: "Confirm your password"
         enter_email: "Enter your email"

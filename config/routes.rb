@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   get "static_pages/*page_type", to: "static_pages#show", as: "static_pages"
 
   devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
+  resources :users, only: %i(index show)
 end
