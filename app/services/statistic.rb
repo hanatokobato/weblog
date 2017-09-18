@@ -12,7 +12,7 @@ class Statistic
     Post.where "created_at BETWEEN ? AND ?", from, to
   end
 
-  def users
+  def new_users
     User.where "created_at BETWEEN ? AND ?", from, to
   end
 

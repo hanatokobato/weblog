@@ -19,7 +19,7 @@
         <ol class="posts">
           <%= render @feed_items %>
         </ol>
-        <%= will_paginate @feed_items %>
+        <%= paginate @feed_items, theme: "twitter-bootstrap-3" %>
       <% end %>
     </div>
   </div>
@@ -38,5 +38,5 @@
     </ul>
   <% end %>
 
-  <%= will_paginate @posts %>
+  <%= paginate @posts, theme: "twitter-bootstrap-3" %>
 <% end %>

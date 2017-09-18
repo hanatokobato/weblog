@@ -7,7 +7,7 @@
       class: "form-control" %>
   </div>
   <div class="field">
-    <%= f.text_area :body, placeholder: t(".compose_post"),
+    <%= f.cktext_area :body, placeholder: t(".compose_post"),
       class: "form-control" %>
   </div>
   <%= f.submit t(".post"), class: "btn btn-primary" %>

@@ -9,7 +9,7 @@
     <% end %>
   </span>
   <span class="content">
-    <%= post.body %>
+    <%= raw(post.body) %>
     <%= image_tag post.picture.url if post.picture? %>
   </span>
   <span class="timestamp">
@@ -23,9 +23,14 @@
       <% end %>
   </span>
   <span class="comment-manager">
-    <%= link_to t(".comments"), post_comments_path(post), remote: true %>
+    <%= link_to t(".comments"), post_comments_path(post),
+      class: "comment-link", remote: true %>
     <span class="badge" id="post_<%= post.id %>_comment_count">
       <%= post.comments.size %>
+    </span>
+    <span id="post_<%= post.id %>_loadding_comments"
+      class="post-loadding-comments">
+      <%= image_tag "Spinner.gif" %>
     </span>
   </span>
   <div class="comments-with-form">

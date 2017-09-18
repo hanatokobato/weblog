@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
   def show
     @posts = @user.posts.order(created_at: :desc)
-      .paginate page: params[:page], per_page: Settings.post.per_page
+      .page(params[:page]).per Settings.post.per_page
   end
 
   def destroy
@@ -23,15 +23,13 @@ class UsersController < ApplicationController
 
   def following
     @title = t ".following"
-    @users = @user.following.paginate page: params[:page],
-      per_page: Settings.users.per_page
+    @users = @user.following.page(params[:page]).per Settings.users.per_page
     render "show_follow"
   end
 
   def followers
     @title = t ".followers"
-    @users = @user.followers.paginate page: params[:page],
-      per_page: Settings.users.per_page
+    @users = @user.followers.page(params[:page]).per Settings.users.per_page
     render "show_follow"
   end
 

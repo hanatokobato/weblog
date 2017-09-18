@@ -4,16 +4,15 @@ class PostsController < ApplicationController
 
   def index
     if params[:search]
-      @posts = Post.search(params[:search]).paginate page: params[:page],
-        per_page: Settings.post.per_page
+      @posts = Post.search(params[:search]).page(params[:page])
+        .per Settings.post.per_page
     elsif params[:tag_name]
       tag = Tag.find_by name: params[:tag_name]
 
       unless tag
         flash[:danger] = t ".not_found"
       end
-      @posts = tag.posts.paginate page: params[:page],
-        per_page: Settings.post.per_page
+      @posts = tag.posts.page(params[:page]).per Settings.post.per_page
     end
   end
 
@@ -24,6 +23,8 @@ class PostsController < ApplicationController
       flash[:success] = t ".created"
       redirect_to root_url
     else
+      @feed_items = [];
+      flash[:danger] = t ".invalid_tags"
       render "static_pages/home"
     end
   end

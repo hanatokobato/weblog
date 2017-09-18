@@ -1,12 +1,12 @@
 comment:
   content:
     maxlength: 255
+  user:
+    picture_size: 30
 devise:
   token:
     max: 20
     min: 0
-  user:
-    picture_size: 30
 post:
   body:
     maxlength: 255

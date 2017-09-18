@@ -1,65 +1,39 @@
 class StatisticsController < ApplicationController
   before_action :authenticate_user!
   before_action :verify_admin!
-  before_action :load_statistic, only: %i(active_users common_posts users posts)
+  before_action :load_statistic, only: :statistic
 
-  def index
-  end
+  def index;end
 
   def statistic
-    if params[:commit] == "Posts"
-      redirect_to statistic_posts_url statistic: statistic_params
-    elsif params[:commit] == "New Users"
-      redirect_to statistic_users_url statistic: statistic_params
-    elsif params[:commit] == "Active Users"
-      redirect_to statistic_active_users_url statistic: statistic_params
-    elsif params[:commit] == "Common Posts"
-      redirect_to statistic_common_posts_url statistic: statistic_params
-    end
-  end
+    @statistic_type = params[:commit].downcase.split(" ").join "_"
 
-  def active_users
     if @statistic.valid?
-      @title = t(".active_users") + "#{@statistic.from} -> #{@statistic.to} "
-      @objects = @statistic.active_users.paginate page: params[:page]
-    else
-      flash.now[:warning] = t ".invalid_date"
-    end
-    render :index
-  end
-
-  def common_posts
-    if @statistic.valid?
-      @title = t(".common_posts") + "#{@statistic.from} -> #{@statistic.to} "
-      @objects = @statistic.common_posts.paginate page: params[:page]
-    else
-      flash.now[:warning] = t ".invalid_date"
-    end
-    render :index
-  end
-
-  def users
-    if @statistic.valid?
-      @title = t(".users") + "#{@statistic.from} -> #{@statistic.to} " +
-        "(#{@statistic.users.size})"
-      @objects = @statistic.users.paginate page: params[:page],
-        per_page: Settings.users.per_page
-    else
-      flash.now[:warning] = t ".invalid_date"
-    end
-    render :index
-  end
-
-  def posts
-    if @statistic.valid?
-      @title = t(".posts") + "#{@statistic.from} -> #{@statistic.to} " +
+      @title = t(".#{@statistic_type}") + "#{@statistic.from} -> #{@statistic.to} " +
         "(#{@statistic.posts.size})"
-      @objects = @statistic.posts.paginate page: params[:page],
-        per_page: Settings.post.per_page
+
+      respond_to do |format|
+        format.html {
+          @objects = @statistic.send("#{@statistic_type}").page(params[:page])
+            .per Settings.post.per_page
+          render :index
+        }
+        format.xls {
+          @objects = @statistic.send("#{@statistic_type}")
+          filename = "#{@title}.xls"
+          send_data(@objects.to_a.to_xls,
+            type: "text/xls; charset=utf-8; header=present",
+            filename: filename)
+        }
+      end
     else
-      flash.now[:warning] = t ".invalid_date"
+      respond_to do |format|
+        format.html {
+          flash.now[:warning] = t ".invalid_date"
+          render :index
+        }
+      end
     end
-    render :index
   end
 
   private

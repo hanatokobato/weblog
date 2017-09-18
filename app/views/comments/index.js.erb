@@ -11,3 +11,5 @@ $("#<%= commentable_type @commentable %>_<%= @commentable.id %>_comment_form")
   comment: @commentable.comments.build) %>");
 $("#<%= commentable_type @commentable %>_<%= @commentable.id %>_comment_form\
   input").focus();
+$("#<%= commentable_type @commentable %>_<%= @commentable.id %>_loadding_comments")
+  .toggle();

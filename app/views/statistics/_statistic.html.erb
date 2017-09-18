@@ -1,5 +1,11 @@
-<h2><%= @title %></h2>
+<h2>
+  <%= @title %>
+  <%= link_to t(".download"), statistic_path(statistic:
+    {from: @statistic.from, to: @statistic.to}, commit: @statistic_type,
+    format: "xls") %>
+</h2>
+
 <ul class="<%= @objects.first.class.name.downcase %>s">
   <%= render @objects %>
 </ul>
-<%= will_paginate @objects %>
+<%= paginate @objects, theme: "twitter-bootstrap-3" %>
