@@ -6,12 +6,10 @@ class StatisticsController < ApplicationController
   def index;end
 
   def statistic
-    @statistic_type = params[:commit].downcase.split(" ").join "_"
-
     if @statistic.valid?
-      @title = t(".#{@statistic_type}") + "#{@statistic.from} -> #{@statistic.to} " +
-        "(#{@statistic.posts.size})"
-
+      @statistic_type = params[:statistic_type]
+      @title = t(".#{@statistic_type}") + "#{@statistic.from} -> #{@statistic.to}" +
+        " (#{@statistic.send(@statistic_type).length})"
       respond_to do |format|
         format.html {
           @objects = @statistic.send("#{@statistic_type}").page(params[:page])

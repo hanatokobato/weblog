@@ -118,6 +118,7 @@ en:
     user:
       are_you_sure: "Are you sure?"
       delete: "delete"
+      post: "post"
     user_info:
       post: "post"
       view_profile: "View my profile"

@@ -25,8 +25,7 @@ class User < ApplicationRecord
     def from_omniauth auth
       where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
         user.email = auth.info.email || "#{auth.provider}-#{auth.uid}@weblog.com"
-        user.password = Devise.friendly_token[Settings.devise.token.min,
-          Settings.devise.token.max]
+        user.password = Devise.friendly_token[0, 20]
         user.name = auth.info.name
         user.skip_confirmation!
       end

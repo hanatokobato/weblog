@@ -2,7 +2,8 @@
 
 <h1><%= t ".statistics" %></h1>
 <div class="row statistics">
-  <%= form_for :statistic, url: statistic_path, html: {method: :get} do |f| %>
+  <%= form_for :statistic, url: statistic_path,
+    html: {method: :get, id: "statistic_form"} do |f| %>
   <div class="col-sm-3">
     <div class="well">
       <p><%= t ".message" %></p>
@@ -24,14 +25,17 @@
         </span>
       </div>
     </div>
+    <%= hidden_field_tag "statistic_type", nil, id: "statistic_type" %>
   </div>
   <div class="col-sm-3">
-    <%= f.submit t(".post_stat"), class: "btn btn-success" %>
-    <%= f.submit t(".common_post_stat"), class: "btn btn-warning" %>
+    <%= f.submit t(".post_stat"), class: "btn btn-success", id: "post_stat" %>
+    <%= f.submit t(".common_post_stat"), class: "btn btn-warning",
+      id: "common_post_stat" %>
   </div>
   <div class="col-sm-3">
-    <%= f.submit t(".user_stat"), class: "btn btn-danger" %>
-    <%= f.submit t(".active_user_stat"), class: "btn btn-info" %>
+    <%= f.submit t(".user_stat"), class: "btn btn-danger", id: "user_stat" %>
+    <%= f.submit t(".active_user_stat"), class: "btn btn-info",
+      id: "active_user_stat" %>
   </div>
   <% end %>
 </div>
