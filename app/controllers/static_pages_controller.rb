@@ -1,6 +1,17 @@
 class StaticPagesController < ApplicationController
   def show
     if valid_page?
+      if params[:page_type] == "home"
+        if user_signed_in?
+          @post = current_user.posts.build
+          @feed_items = Post.feed(current_user.id).order_latest
+            .page(params[:page]).per Settings.post.per_page
+        else
+          @posts = Post.all.order_latest
+            .page(params[:page]).per Settings.post.per_page
+        end
+      end
+
       render "#{params[:page_type]}"
     else
       render file: "public/404.html", status: :not_found
