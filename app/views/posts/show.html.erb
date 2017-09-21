@@ -1,0 +1,60 @@
+<% provide :title, @post.title %>
+
+<div class="row">
+  <aside class="col-md-9">
+    <div class="show-post">
+      <h1><%= @post.title %></h1>
+      <section class="tags">
+        <% if @post.tags.any? %>
+          <%= raw tag_links @post.tag_names %>
+        <% end %>
+      </section>
+      <span class="timestamp">
+        <%= t ".posted" %>
+        <%= time_ago_in_words @post.created_at %>
+        <%= t ".ago" %>.
+        <% if user_signed_in? && (current_user.is_user?(@post.user) ||
+          current_user.admin?) %>
+          | <%= link_to t(".delete"), @post, method: :delete,
+          data: {confirm: t(".are_you_sure")} %>
+        <% end %>
+        <% if user_signed_in? && current_user.is_user?(@post.user) %>
+          | <%= link_to t(".edit"), "#", data: {toggle: "modal",
+            target: "#editModal"} %>
+          <%= render "posts/edit" %>
+        <% end %>
+        <%= social_share_button_tag @post.title, allow_sites: %w(twitter facebook google_plus) %>
+      </span>
+      <div class="content">
+        <%= raw @post.body %>
+        <%= image_tag @post.picture.url if @post.picture? %>
+      </div>
+      <%= link_to t(".comments"), post_comments_path(@post),
+          class: "comment-link", remote: true %>
+      <span class="badge" id="post_<%= @post.id %>_comment_count">
+        <%= @post.comments.size %>
+      </span>
+      <span id="post_<%= @post.id %>_loadding_comments"
+        class="post-loadding-comments">
+        <%= image_tag "Spinner.gif" %>
+      </span>
+      <div class="comments-with-form">
+        <ul class="comments-list" id="post_<%= @post.id %>_comments" style="display: none">
+        </ul>
+        <% if can_comment? @post %>
+          <span id="post_<%= @post.id %>_comment_form" class="comment-form"
+            style="display: none"></span>
+        <% end %>
+      </div>
+    </div>
+  </aside>
+  <div class="col-md-3">
+    <div class="user-info">
+      <%= link_to gravatar_for(@post.user, size: Settings.users.gravatar.size),
+        @post.user %>
+      <h1><%= @post.user.name %></h1>
+      <span><%= link_to t(".view_profile"), @post.user %></span>
+      <span><%= pluralize @post.user.posts.count, t(".post") %></span>
+    </div>
+  </div>
+</div>

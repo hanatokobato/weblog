@@ -51,6 +51,13 @@ en:
     destroy:
       deleted: "Post deleted!"
       failed: "Can not delete this post!"
+    edit:
+      close: "Close"
+      compose_post: "Conpose post"
+      edit_post: "Edit post"
+      enter_title: "Enter title"
+      post: "Post"
+      tag_separated: "Tag separated with comma"
     index:
       not_found: "Post is not found!"
       search_post: "Search Post"
@@ -64,9 +71,18 @@ en:
       ago: "ago"
       are_you_sure: "Are you sure?"
       delete: "delete"
+      edit: "edit"
       posted: "posted"
       tags: "tags: "
       title: "title: "
+    show:
+      ago: "ago"
+      are_you_sure: "Are you sure?"
+      delete: "delete"
+      edit: "edit"
+      post: "post"
+      posted: "Posted"
+      view_profile: "View profile"
   shared:
     error_messages:
       error: "error"

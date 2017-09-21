@@ -11,9 +11,14 @@ class PostsController < ApplicationController
 
       unless tag
         flash[:danger] = t ".not_found"
+        redirect_to request.referrer || root_url
       end
       @posts = tag.posts.page(params[:page]).per Settings.post.per_page
     end
+  end
+
+  def show
+    @post = Post.find_by id: params[:id]
   end
 
   def create
@@ -26,6 +31,18 @@ class PostsController < ApplicationController
       @feed_items = [];
       flash[:danger] = t ".invalid_tags"
       render "static_pages/home"
+    end
+  end
+
+  def update
+    @post = Post.find_by id: params[:id]
+
+    if @post.update_attributes post_params
+      flash[:success] = t ".updated"
+      redirect_to request.referrer || root_url
+    else
+      flash.now[:danger] = t ".failed"
+      render :show
     end
   end
 

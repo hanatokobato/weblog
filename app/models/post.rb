@@ -14,6 +14,7 @@ class Post < ApplicationRecord
   validate :picture_size
 
   after_save :create_tags
+  before_update :delete_post_tags
 
   mount_uploader :picture, PictureUploader
   scope :feed, (lambda do |user_id|
@@ -41,6 +42,10 @@ class Post < ApplicationRecord
     new_tag_names.split(",").each do |name|
       self.tags << Tag.where(name: name).first_or_create!
     end
+  end
+
+  def delete_post_tags
+    tags.clear
   end
 
   def picture_size
