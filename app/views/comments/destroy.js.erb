@@ -1,0 +1,3 @@
+$('#comment-<%= @comment.id %>').html('');
+$('#<%= commentable_type @commentable %>-<%= @commentable.id %>-comment-count')
+  .html('<%= @commentable.comments.size %>');

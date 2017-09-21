@@ -1,11 +1,14 @@
 <%= form_for @post do |f| %>
   <%= render "shared/error_messages", object: f.object %>
   <div>
-    <%= f.text_field :title, placeholder: t(".enter_title") %>
+    <%= f.text_field :title, placeholder: t(".enter_title"),
+      class: "form-control" %>
+    <%= f.text_field :new_tag_names, placeholder: t(".tag_separated"),
+      class: "form-control" %>
   </div>
   <div class="field">
-    <%= f.cktext_area :body, placeholder: t(".compose_post") %>
-    <%= f.text_field :new_tag_names, placeholder: t(".tag_separated") %>
+    <%= f.cktext_area :body, placeholder: t(".compose_post"),
+      class: "form-control" %>
   </div>
   <%= f.submit t(".post"), class: "btn btn-primary" %>
   <span class="picture">

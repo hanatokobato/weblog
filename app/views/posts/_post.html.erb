@@ -1,4 +1,4 @@
-<li id="post-<%= post.id %>">
+<li id="post-<%= post.id %>" class="post">
   <%= link_to gravatar_for(post.user, size: Settings.users.gravatar.size),
     post.user %>
   <span class="user"><%= link_to post.user.name, post.user %></span>
@@ -16,4 +16,17 @@
           data: {confirm: t(".are_you_sure")} %>
       <% end %>
   </span>
+  <span class="comment-manager">
+    <%= link_to t(".comments"), post_comments_path(post), remote: true %>
+    <span class="badge" id="post-<%= post.id %>-comment-count">
+      <%= post.comments.size %>
+    </span>
+  </span>
+  <div class="comments-with-form">
+    <ul class="comments-list" id="post-<%= post.id %>-comments"></ul>
+    <% if user_signed_in? && (current_user.is_user?(post.user) ||
+        current_user.following?(post.user)) %>
+      <span id="post-<%= post.id %>-comment-form" class="comment-form"></span>
+    <% end %>
+  </div>
 </li>

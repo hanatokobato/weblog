@@ -1,0 +1,13 @@
+if(<%= @commentable.comments.any? %>){
+  $('#<%= commentable_type @commentable %>-<%= @commentable.id %>-comments')
+    .html('<%= j render @comments, commentable: @commentable %>');
+}
+$('#<%= commentable_type @commentable %>-<%= @commentable.id %>-comments')
+  .toggle();
+$('#<%= commentable_type @commentable %>-<%= @commentable.id %>-comment-form')
+  .toggle();
+$('#<%= commentable_type @commentable %>-<%= @commentable.id %>-comment-form')
+  .html('<%= j render "comments/form",\
+  comment: @commentable.comments.build %>');
+$('#<%= commentable_type @commentable %>-<%= @commentable.id %>-comment-form\
+  input').focus();

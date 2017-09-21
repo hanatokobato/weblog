@@ -1,0 +1,43 @@
+<div id="comment-<%= comment.id %>" class="comment">
+  <li>
+    <%= link_to gravatar_for(comment.user,
+      size: Settings.comment.user.picture_size), comment.user %>
+    <span class="user"><%= link_to comment.user.name, comment.user %></span>
+    <div class="body">
+      <span class="content"><%= comment.content %></span>
+      <span class="timestamp">
+        <%= t ".submited" %>
+        <%= time_ago_in_words comment.created_at %>
+        <%= t ".ago" %>.
+        <% if comment.commentable_type == Post.name %>
+          <%= link_to t(".edit"), edit_post_comment_path(commentable, comment),
+            remote: true if can_edit_comment? comment %> |
+          <%= link_to t(".delete"), post_comment_path(commentable, comment),
+            method: :delete, data: {confirm: t(".are_you_sure")},
+            remote: true if can_delete_comment? comment, @post %>
+        <% else %>
+          <%= link_to t(".edit"), edit_comment_comment_path(commentable, comment,
+            post_id: @post.id), remote: true if can_edit_comment? comment %> |
+          <%= link_to t(".delete"), comment_comment_path(commentable, comment,
+            post_id: @post.id), method: :delete, data: {confirm: t(".are_you_sure")},
+            remote: true if can_delete_comment? comment, @post %>
+        <% end %>
+      </span>
+      <span class="comment-manager">
+        <%= link_to t(".reply"), comment_comments_path(comment, post_id: @post.id),
+          remote: true %>
+        <span class="badge" id="comment-<%= comment.id %>-comment-count">
+          <%= comment.comments.size %>
+        </span>
+      </span>
+    </div>
+    <div class="edit-form"></div>
+    <div class="comments-with-form">
+      <ul class="comments-list" id="comment-<%= comment.id %>-comments"></ul>
+      <% if user_signed_in? && current_user.is_user?(@post.user) %>
+        <span id="comment-<%= comment.id %>-comment-form"
+          class="comment-form"></span>
+      <% end %>
+    </div>
+  </li>
+</div>
