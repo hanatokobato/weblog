@@ -49,6 +49,10 @@ textarea {
   margin-bottom: 10px;
 }
 
+.jumbotron {
+  background-color: $info;
+}
+
 /* typography */
 
 h1,
@@ -236,7 +240,7 @@ aside {
 
   a {
     border-left: 1px solid $gray-lighter;
-    color: gray;
+    color: $gray;
     float: left;
     padding: 0 10px;
 
@@ -246,7 +250,7 @@ aside {
     }
 
     &:hover {
-      color: blue;
+      color: $blue;
       text-decoration: none;
     }
   }
@@ -280,7 +284,7 @@ aside {
   margin: 0;
 
   li {
-    border-bottom: 1px solid $gray-lighter;
+    border-bottom: 1px solid $mercury;
     overflow: auto;
     padding: 10px 0;
   }
@@ -292,9 +296,13 @@ aside {
   list-style: none;
   padding: 0;
 
-  li {
-    border-top: 1px solid #e8e8e8;
-    padding: 10px 0;
+  .post {
+    background-color: $white;
+    border-radius: 2px;
+    border-top: 1px solid $mercury;
+    box-shadow: 0 2px 3px 2px $rgba-white;
+    margin-bottom: 25px;
+    padding: 12px 20px 15px;
   }
 
   .user {
@@ -332,7 +340,6 @@ aside {
 
 aside {
   textarea {
-    height: 100px;
     margin-bottom: 5px;
   }
 }
@@ -372,7 +379,7 @@ span.picture {
 }
 
 .comments-with-form {
-  background-color: $moon-raker;
+  background-color: $warning;
 
   .comment-form {
     display: none;

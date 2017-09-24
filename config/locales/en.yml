@@ -40,6 +40,8 @@ en:
       login: "Log in"
       logout: "Log out"
       profile: "Profile"
+      search: "Search"
+      search_post: "Search Post"
       settings: "Settings"
       users: "Users"
       weblog: "Weblog"
@@ -49,6 +51,10 @@ en:
     destroy:
       deleted: "Post deleted!"
       failed: "Can not delete this post!"
+    index:
+      not_found: "Post is not found!"
+      search_post: "Search Post"
+      post_founded: "Posts are founded"
     new:
       compose_post: "Compose post"
       enter_title: "Enter title"
@@ -59,6 +65,7 @@ en:
       are_you_sure: "Are you sure?"
       delete: "delete"
       posted: "posted"
+      tags: "tags: "
       title: "title: "
   relationships:
     create:
