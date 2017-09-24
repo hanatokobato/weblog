@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_many :following, through: :active_relationships, source: :followed
   has_many :passive_relationships, class_name: Relationship.name,
     foreign_key: :followed_id, dependent: :destroy
-  has_many :follower, through: :passive_relationships, source: :follower
+  has_many :followers, through: :passive_relationships, source: :follower
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   validates :name, presence: true,
@@ -25,8 +25,7 @@ class User < ApplicationRecord
     def from_omniauth auth
       where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
         user.email = auth.info.email || "#{auth.provider}-#{auth.uid}@weblog.com"
-        user.password = Devise.friendly_token[Settings.devise.token.min,
-          Settings.devise.token.max]
+        user.password = Devise.friendly_token[0, 20]
         user.name = auth.info.name
         user.skip_confirmation!
       end
@@ -45,5 +44,17 @@ class User < ApplicationRecord
 
   def is_user? user
     self == user
+  end
+
+  def follow other
+    following << other
+  end
+
+  def unfollow other
+    following.delete other
+  end
+
+  def following? other
+    following.include? other
   end
 end
