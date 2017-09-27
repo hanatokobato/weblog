@@ -23,6 +23,12 @@ class Post < ApplicationRecord
     where("user_id IN (#{following_ids})
       OR user_id = :user_id", user_id: user_id)
   end)
+  scope :search, (lambda do |search|
+    post_ids = "(SELECT post_tags.post_id FROM post_tags INNER JOIN tags
+      ON post_tags.tag_id = tags.id
+      WHERE tags.name LIKE :search)"
+    where("title LIKE :search OR id IN #{post_ids}", search: "%#{search}%")
+  end)
 
   def tag_names
     self.tags.map(&:name).join ", "
