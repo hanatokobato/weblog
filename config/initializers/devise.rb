@@ -3,6 +3,8 @@ Devise.setup do |config|
 
   require "devise/orm/active_record"
 
+  config.secret_key = "f6187ca24b8b17055f186e5b3eadfe38bd1cdc2b1e72cb0ec32783a612f432f2d0ee877a9b48571bdd54ecc4a7925568c0a79bede6e865cafe49d4b9ee077954"
+
   config.case_insensitive_keys = [:email]
 
   config.strip_whitespace_keys = [:email]

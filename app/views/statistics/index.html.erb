@@ -1,0 +1,43 @@
+<% provide :title, t(".statistics") %>
+
+<h1><%= t ".statistics" %></h1>
+<div class="row statistics">
+  <%= form_for :statistic, url: statistic_path,
+    html: {method: :get, id: "statistic_form"} do |f| %>
+  <div class="col-sm-3">
+    <div class="well">
+      <p><%= t ".message" %></p>
+    </div>
+    <div class="form-group">
+      <div class="input-group date" id="datetimepicker1">
+        <%= f.text_field :from, class: "form-control", placeholder: t(".begin") %>
+        <span class="input-group-addon">
+          <span class="glyphicon glyphicon-calendar"></span>
+        </span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="input-group date" id="datetimepicker2">
+        <%= f.text_field :to, class: "form-control", placeholder: t(".end") %>
+        <span class="input-group-addon">
+          <span class="glyphicon glyphicon-calendar"></span>
+        </span>
+      </div>
+    </div>
+    <%= hidden_field_tag "statistic_type", nil, id: "statistic_type" %>
+  </div>
+  <div class="col-sm-3">
+    <%= f.submit t(".post_stat"), class: "btn btn-success", id: "post_stat" %>
+    <%= f.submit t(".common_post_stat"), class: "btn btn-warning",
+      id: "common_post_stat" %>
+  </div>
+  <div class="col-sm-3">
+    <%= f.submit t(".user_stat"), class: "btn btn-danger", id: "user_stat" %>
+    <%= f.submit t(".active_user_stat"), class: "btn btn-info",
+      id: "active_user_stat" %>
+  </div>
+  <% end %>
+</div>
+
+<%= render "statistic" if @objects %>

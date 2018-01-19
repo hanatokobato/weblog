@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: %i(create destroy)
+  before_action :authenticate_user!, only: %i(create update destroy)
   before_action :correct_user, only: :destroy
 
   def index
@@ -11,11 +11,15 @@ class PostsController < ApplicationController
 
       unless tag
         flash[:danger] = t ".not_found"
-        redirect_to request.referrer || root_url
+        redirect_to root_url
+      else
+        @posts = tag.posts.page(params[:page]).per Settings.post.per_page
       end
-
-      @posts = tag.posts.page(params[:page]).per Settings.post.per_page
     end
+  end
+
+  def show
+    @post = Post.find_by id: params[:id]
   end
 
   def create
@@ -25,7 +29,21 @@ class PostsController < ApplicationController
       flash[:success] = t ".created"
       redirect_to root_url
     else
+      @feed_items = [];
+      flash[:danger] = t ".invalid_tags"
       render "static_pages/home"
+    end
+  end
+
+  def update
+    @post = Post.find_by id: params[:id]
+
+    if @post.update_attributes post_params
+      flash[:success] = t ".updated"
+      redirect_to request.referrer || root_url
+    else
+      flash.now[:danger] = t ".failed"
+      render :show
     end
   end
 

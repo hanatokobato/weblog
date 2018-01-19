@@ -352,6 +352,38 @@ span.picture {
   }
 }
 
+.show-post {
+  background-color: $white;
+  border-radius: 2px;
+  box-shadow: 0 2px 3px 2px rgba(0,0,0,.03);
+  min-height: 500px;
+  padding: 50px 30px 20px 50px;
+
+  h1 {
+    float: left;
+  }
+
+  .tags {
+    clear: both;
+  }
+
+  .timestamp {
+    border-bottom: 1px solid $mercury;
+    display: block;
+  }
+
+  .content {
+    margin-top: 15px;
+    min-height: 100px;
+  }
+
+  .comments-with-form {
+    .timestamp {
+      border-bottom: 0;
+    }
+  }
+}
+
 /* comments */
 
 .comments-list {
@@ -383,5 +415,17 @@ span.picture {
 
   .comment-form {
     display: none;
+  }
+}
+
+.post-loadding-comments {
+  display: none;
+}
+
+/* statistics */
+
+.statistics {
+  .btn {
+    margin-bottom: 10px;
   }
 }

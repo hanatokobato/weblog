@@ -1,5 +1,6 @@
-$('#follow-form').html('<%= j render "users/unfollow" %>');
-$('#followers').html('<%= @user.followers.size %>');
-if(<%= @error.present? %>){
+<% if @error.present? %>
   $('.ajax-error').html('<%= @error %>').show();
-}
+<% else %>
+  $('#follow-form').html('<%= j render "users/unfollow" %>');
+  $('#followers').html('<%= @user.followers.size %>');
+<% end %>

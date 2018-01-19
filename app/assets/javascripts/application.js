@@ -15,4 +15,6 @@
 //= require rails-ujs
 //= require bootstrap
 //= require ckeditor/init
+//= require bootstrap-datepicker
+//= require social-share-button
 //= require_tree .

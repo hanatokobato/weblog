@@ -43,14 +43,23 @@ en:
       search: "Search"
       search_post: "Search Post"
       settings: "Settings"
+      statistic: "Statistic"
       users: "Users"
       weblog: "Weblog"
   posts:
     create:
       created: "Post created!"
+      invalid_tags: "Invalid Tags!"
     destroy:
       deleted: "Post deleted!"
       failed: "Can not delete this post!"
+    edit:
+      close: "Close"
+      compose_post: "Conpose post"
+      edit_post: "Edit post"
+      enter_title: "Enter title"
+      post: "Post"
+      tag_separated: "Tag separated with comma"
     index:
       not_found: "Post is not found!"
       search_post: "Search Post"
@@ -64,9 +73,18 @@ en:
       ago: "ago"
       are_you_sure: "Are you sure?"
       delete: "delete"
+      edit: "edit"
       posted: "posted"
       tags: "tags: "
       title: "title: "
+    show:
+      ago: "ago"
+      are_you_sure: "Are you sure?"
+      delete: "delete"
+      edit: "edit"
+      post: "post"
+      posted: "Posted"
+      view_profile: "View profile"
   relationships:
     create:
       can_not_follow: "Can not follow"
@@ -83,7 +101,29 @@ en:
       intro: "This is the home page for the Weblog"
       welcome: "Welcome to the Weblog"
       signup: "Sign up now!"
+  statistics:
+    can_not_view: "You can not view statistics!"
+    index:
+      active_user_stat: "Active Users"
+      begin: "Begin date"
+      common_post_stat: "Common Posts"
+      end: "End date"
+      message: "Enter begin and end date below.
+        They are used to calculate statistic. (format: yyyy-mm-dd)"
+      post_stat: "Posts"
+      statistics: "Statistics"
+      user_stat: "New Users"
+    statistic:
+      active_users: "The most active users from "
+      common_posts: "The most common posts from "
+      download: "Downloads"
+      invalid_date: "Invalid date!"
+      new_users: "New users from "
+      posts: "Posts are submited from "
   users:
+    destroy:
+      can_not_delete: "Can not delete this user!"
+      deleted: "User is deleted!"
     follow:
       follow: "Follow"
     followers:
@@ -99,6 +139,10 @@ en:
     index:
       all_users: "All users"
     not_found: "User not found!"
+    user:
+      are_you_sure: "Are you sure?"
+      delete: "delete"
+      post: "post"
     user_info:
       post: "post"
       view_profile: "View my profile"

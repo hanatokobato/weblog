@@ -16,4 +16,6 @@
  *@import "font-awesome";
  *= require_tree .
  *= require_self
+ *= require bootstrap-datepicker
+ *= require social-share-button
  */
